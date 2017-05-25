@@ -1,12 +1,6 @@
 package com.unicorn.controller;
 
-import java.math.BigDecimal;
-
 import com.unicorn.dto.TransactionDTO;
-import com.unicorn.entity.Account;
-import com.unicorn.entity.Transaction;
-import com.unicorn.repository.AccountRepository;
-import com.unicorn.repository.TransactionRepository;
 import com.unicorn.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

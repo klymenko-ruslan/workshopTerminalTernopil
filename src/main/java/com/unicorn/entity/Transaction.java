@@ -23,14 +23,14 @@ public class Transaction {
     private long transactionId;
 
     @ManyToOne
-    @JoinColumn(name="fromAccount", nullable=false)
+    @JoinColumn(name="fromCreditCard", nullable=false)
     @JsonIgnore
-    private Account fromAccount;
+    private CreditCard fromCreditCard;
 
     @ManyToOne
-    @JoinColumn(name="toAccount", nullable=false)
+    @JoinColumn(name="toCreditCard", nullable=false)
     @JsonIgnore
-    private Account toAccount;
+    private CreditCard toCreditCard;
 
     private long timestamp;
 

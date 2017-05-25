@@ -38,13 +38,13 @@ public class JWTAuthenticationFilter extends GenericFilterBean {
         String authorization = servletRequest.getHeader("Authorization");
         String username = authorization.substring(0, authorization.indexOf("."));
         User user = userRepository.findByUsername(username);
-        if(user != null) {
-            String password = authorization.substring(authorization.indexOf(".") + 1);
-            if(passwordEncoder.encode(password).equals(user.getPassword())) {
-                Authentication authentication = new UsernamePasswordAuthenticationToken(username, null, emptyList());
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-            }
-        }
+//        if(user != null) {
+//            String password = authorization.substring(authorization.indexOf(".") + 1);
+//            if(passwordEncoder.encode(password).equals(user.getPassword())) {
+//                Authentication authentication = new UsernamePasswordAuthenticationToken(username, null, emptyList());
+//                SecurityContextHolder.getContext().setAuthentication(authentication);
+//            }
+//        }
         filterChain.doFilter(request, response);
     }
 }

@@ -1,6 +1,6 @@
 package com.unicorn.repository;
 
-import com.unicorn.entity.Account;
+import com.unicorn.entity.CreditCard;
 import com.unicorn.entity.Transaction;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

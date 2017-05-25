@@ -17,20 +17,22 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class Account {
+public class CreditCard {
 
     @Id
     @GeneratedValue
-    private long accountId;
+    private long creditCardId;
+
+    private String password;
 
     @ManyToOne
     @JoinColumn(name="userId", nullable=false)
     private User user;
 
-    @OneToMany(mappedBy = "fromAccount")
+    @OneToMany(mappedBy = "fromCreditCard")
     private Collection<Transaction> fromTransactions;
 
-    @OneToMany(mappedBy = "toAccount")
+    @OneToMany(mappedBy = "toCreditCard")
     private Collection<Transaction> toTransactions;
 
     private BigDecimal balance;

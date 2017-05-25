@@ -9,7 +9,8 @@ import lombok.Data;
  */
 @Data
 public class TransactionDTO {
-    private long accountFromId;
-    private long accountToId;
+    private long creditCardFromId;
+    private long creditCardToId;
+    private String creditCardPassword;
     private BigDecimal amount;
 }

@@ -20,9 +20,9 @@ public class User {
     private long userId;
 
     private String username;
-    private String password;
+
    // private boolean enabled;
 
     @OneToMany(mappedBy = "user")
-    private Collection<Account> accounts;
+    private Collection<CreditCard> creditCards;
 }
