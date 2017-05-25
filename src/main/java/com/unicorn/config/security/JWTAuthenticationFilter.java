@@ -23,7 +23,7 @@ import org.springframework.web.filter.GenericFilterBean;
 /**
  * Created by klymenko.ruslan on 24.05.2017.
  */
-@Component
+//@Component
 public class JWTAuthenticationFilter extends GenericFilterBean {
 
     @Autowired
