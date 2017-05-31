@@ -1,17 +1,22 @@
 package com.unicorn.service;
 
 import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import javax.transaction.Transactional;
 
 import com.unicorn.dto.TransactionDTO;
 import com.unicorn.entity.CreditCard;
 import com.unicorn.entity.Transaction;
+import com.unicorn.entity.User;
 import com.unicorn.exception.InsufficientBalanceException;
 import com.unicorn.exception.NoSuchCreditCardException;
 import com.unicorn.exception.WrongAuthoritiesException;
 import com.unicorn.repository.CreditCardRepository;
 import com.unicorn.repository.TransactionRepository;
+import com.unicorn.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,6 +32,9 @@ public class TransactionService {
 
     @Autowired
     private TransactionRepository transactionRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;

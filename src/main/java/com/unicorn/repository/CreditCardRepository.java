@@ -7,6 +7,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 /**
  * Created by klymenko.ruslan on 24.05.2017.
  */
-@RepositoryRestResource(collectionResourceRel = "creditcards", path = "creditcards")
+@RepositoryRestResource
 public interface CreditCardRepository extends PagingAndSortingRepository<CreditCard, Long> {
 }

@@ -10,13 +10,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
+//import lombok.Data;
 
 /**
  * Created by klymenko.ruslan on 24.05.2017.
  */
 @Entity
-@Data
+//@Data
 public class Transaction {
     @Id
     @GeneratedValue
@@ -35,4 +35,44 @@ public class Transaction {
     private long timestamp;
 
     private BigDecimal value;
+
+    public long getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(final long transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    public CreditCard getFromCreditCard() {
+        return fromCreditCard;
+    }
+
+    public void setFromCreditCard(final CreditCard fromCreditCard) {
+        this.fromCreditCard = fromCreditCard;
+    }
+
+    public CreditCard getToCreditCard() {
+        return toCreditCard;
+    }
+
+    public void setToCreditCard(final CreditCard toCreditCard) {
+        this.toCreditCard = toCreditCard;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(final long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public BigDecimal getValue() {
+        return value;
+    }
+
+    public void setValue(final BigDecimal value) {
+        this.value = value;
+    }
 }
