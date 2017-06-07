@@ -1,9 +1,7 @@
 package com.unicorn.repository.interceptor;
 
 import com.unicorn.entity.CreditCard;
-import com.unicorn.entity.User;
 import com.unicorn.repository.CreditCardRepository;
-import com.unicorn.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
 import org.springframework.data.rest.core.annotation.HandleBeforeSave;
@@ -25,12 +23,12 @@ public class CreditCardEventHandler {
     private CreditCardRepository creditCardRepository;
 
     @HandleBeforeCreate
-    public void handleUserCreate(CreditCard creditCard) {
+    public void handleCreditCardCreate(CreditCard creditCard) {
         creditCard.setPassword(passwordEncoder.encode(creditCard.getPassword()));
     }
 
     @HandleBeforeSave
-    public void handleUserUpdate(CreditCard creditCard) {
+    public void handleCreditCardUpdate(CreditCard creditCard) {
         if (creditCard.getPassword() == null || creditCard.getPassword().equals("")) {
             CreditCard storedCreditCard = creditCardRepository.findOne(creditCard.getCreditCardId());
             creditCard.setPassword(storedCreditCard.getPassword());

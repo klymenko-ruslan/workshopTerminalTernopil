@@ -10,13 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-//import lombok.Data;
-
 /**
  * Created by klymenko.ruslan on 24.05.2017.
  */
 @Entity
-//@Data
 public class CreditCard {
 
     @Id

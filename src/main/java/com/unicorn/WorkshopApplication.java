@@ -1,14 +1,15 @@
 package com.unicorn;
 
+import io.undertow.UndertowOptions;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainerFactory;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
+@ConfigurationProperties
 public class WorkshopApplication {
 
     @Bean
@@ -16,17 +17,16 @@ public class WorkshopApplication {
         return new BCryptPasswordEncoder();
     }
 
-	public static void main(String[] args) {
-		SpringApplication.run(WorkshopApplication.class, args);
-	}
-
     @Bean
-    public RepositoryRestConfigurer repositoryRestConfigurer() {
-        return new RepositoryRestConfigurerAdapter() {
-            @Override
-            public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-                config.setBasePath("/api");
-            }
-        };
+    public UndertowEmbeddedServletContainerFactory embeddedServletContainerFactory() {
+        UndertowEmbeddedServletContainerFactory factory = new UndertowEmbeddedServletContainerFactory();
+        factory.addBuilderCustomizers(
+                builder -> builder.setServerOption(UndertowOptions.ENABLE_HTTP2, true));
+        return factory;
     }
+
+    public static void main(String[] args) {
+        SpringApplication.run(WorkshopApplication.class, args);
+    }
+
 }

@@ -1,16 +1,12 @@
 package com.unicorn.service;
 
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 import javax.transaction.Transactional;
 
 import com.unicorn.dto.TransactionDTO;
 import com.unicorn.entity.CreditCard;
 import com.unicorn.entity.Transaction;
-import com.unicorn.entity.User;
 import com.unicorn.exception.InsufficientBalanceException;
 import com.unicorn.exception.NoSuchCreditCardException;
 import com.unicorn.exception.WrongAuthoritiesException;
